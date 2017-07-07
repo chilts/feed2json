@@ -3,6 +3,7 @@
   "version": "0.4.0",
   "description": "Convert RSS/Atom feeds to JSONFeed.",
   "main": "index.js",
+  "repository": "chilts/feed2json",
   "scripts": {
     "test": "set -e; for FILE in test/*.js; do node $FILE; done"
   },

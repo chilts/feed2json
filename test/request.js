@@ -71,4 +71,34 @@ test('request a 404', (t) => {
   })
 })
 
+test('invalid url', (t) => {
+  t.plan(1)
+
+  let url = 'https://org/rss.xml'
+  let stream = request(url)
+
+  feed2json.fromStream(stream, url, (err, json) => {
+    t.ok(!!err, 'error trying to request this file')
+    t.end()
+  })
+})
+
+test('invalid protocol', (t) => {
+  t.plan(1)
+
+  let url = 'ftp://example.org/rss.xml'
+  try {
+    let stream = request(url)
+  }
+  catch(err) {
+    t.ok(!!err, 'the error is thrown by request')
+    t.end()
+    return
+  }
+
+  t.fail("Should reach here since request throws with an invalid protocol")
+
+  t.end()
+})
+
 // --------------------------------------------------------------------------------------------------------------------

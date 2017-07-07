@@ -4,6 +4,7 @@
 
 // npm
 const FeedParser = require('feedparser')
+const string2stream = require('string-to-stream')
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -195,10 +196,16 @@ function fromStream(stream, url, opts, callback) {
   })
 }
 
+function fromString(string, url, opts, callback) {
+  let stream = string2stream(string)
+  fromStream(stream, url, opts, callback)
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-  fromStream
+  fromStream,
+  fromString,
 }
 
 // --------------------------------------------------------------------------------------------------------------------

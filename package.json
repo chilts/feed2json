@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "feedparser": "^2.2.1",
-    "iconv-lite": "^0.4.18"
+    "iconv-lite": "^0.4.18",
+    "string-to-stream": "^1.1.0"
   },
   "devDependencies": {
     "request": "^2.81.0",

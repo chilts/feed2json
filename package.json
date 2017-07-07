@@ -11,6 +11,7 @@
     "iconv-lite": "^0.4.18"
   },
   "devDependencies": {
+    "request": "^2.81.0",
     "tape": "^4.7.0"
   },
   "author": "Andrew Chilton <andychilton@gmail.com>",

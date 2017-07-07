@@ -59,4 +59,16 @@ test('request stream an Atom file', (t) => {
   })
 })
 
+test('request a 404', (t) => {
+  t.plan(1)
+
+  let url = 'https://bulk.chilts.org/feed2json/404.xml'
+  let stream = request(url)
+
+  feed2json.fromStream(stream, url, (err, json) => {
+    t.ok(!!err, 'error trying to request this file')
+    t.end()
+  })
+})
+
 // --------------------------------------------------------------------------------------------------------------------

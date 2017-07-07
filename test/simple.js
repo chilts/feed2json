@@ -62,4 +62,16 @@ test('read a small Atom file', (t) => {
   })
 })
 
+test('read a non-existant file', (t) => {
+  t.plan(1)
+
+  let stream = fs.createReadStream(path.join(__dirname, 'does-not-exist.xml'))
+  let url = 'https://chilts.org/rss.xml'
+
+  feed2json.fromStream(stream, url, (err, json) => {
+    t.ok(!!err, 'error trying to read this file')
+    t.end()
+  })
+})
+
 // --------------------------------------------------------------------------------------------------------------------

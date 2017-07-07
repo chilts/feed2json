@@ -16,6 +16,15 @@ function logThis(log, msg) {
   log(msg)
 }
 
+function once(fn) {
+  var called = false
+  return function(err, data) {
+    if ( called ) return
+    called = true
+    fn(err, data)
+  }
+}
+
 function fromStream(stream, url, opts, callback) {
   // check if there is no callback, it's probably the `opts` missing
   if ( typeof callback === 'undefined' ) {
@@ -25,7 +34,8 @@ function fromStream(stream, url, opts, callback) {
     }
   }
 
-  let calledBack = false
+  // only call the callback once
+  callback = once(callback)
 
   // create the feedparser
   logThis(opts.log, 'feedparser.creating')
@@ -38,9 +48,7 @@ function fromStream(stream, url, opts, callback) {
 
   // check for request errors
   stream.on('error', function (err) {
-    callback({
-      err : "error opening feed file : " + err
-    })
+    callback(err)
   })
 
   // stream into feedparser
@@ -52,8 +60,7 @@ function fromStream(stream, url, opts, callback) {
   // now listen to events from the feedparser
   feedparser.on('error', function(err) {
     logThis(opts.log, 'feedparser error :' + err)
-    calledBack = true
-    return callback({ err : "error parsing feed : " + err })
+    callback(err)
   })
 
   feedparser.on('meta', function(meta) {
@@ -182,12 +189,6 @@ function fromStream(stream, url, opts, callback) {
   // and finish the request
   feedparser.on('end', function() {
     logThis(opts.log, 'feedparser.end')
-
-    // don't do anything if we have already errored out and calledBack
-    if ( calledBack ) {
-      logThis(opts.log, "feedparser has ended, but we've already called back a result")
-      return
-    }
 
     // now send the reply
     callback(null, data)

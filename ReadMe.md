@@ -15,7 +15,7 @@ UTF8 by default.
 
 This project contains the converter but does not fetch the feed for you, you must do that yourself.
 
-Here is an example showing a conversion of an RSS file on disk:
+Example showing a conversion of an RSS file on disk:
 
 ```javascript
 let stream = fs.createReadStream(path.join(__dirname, 'rss.xml'))
@@ -26,7 +26,7 @@ feed2json.fromStream(stream, url, (err, json) => {
 })
 ```
 
-Here is an example showing a conversion from an Atom feed fetched with `request`:
+Example showing a conversion from an Atom feed fetched with `request`:
 
 ```javascript
 let url = "https://chilts.org/atom.xml"
@@ -37,6 +37,29 @@ feed2json.fromStream(req, url, (err, json) => {
   // otherwise `json` is populated with JSONFeed format
 })
 ```
+
+Example showing a conversion from a feed already in a string variable:
+
+```javascript
+let url = "https://chilts.org/rss.xml"
+let str = [
+    '<?xml version="1.0" encoding="UTF-8"?>"',
+    '<rss version="2.0">',
+    '...etc...',
+    '</rss>',
+].join('\n')
+
+feed2json.fromString(str, url, (err, json) => {
+  // check for err
+  // otherwise `json` is populated with JSONFeed format
+})
+```
+
+## feed2json.org ##
+
+Note: this package has been tested on https://feed2json.org and has converted many feeds to JSONFeed. It's not perfect
+I'm sure, but it's doing a decent job. Please send any PRs or patches my way so we can improve the conversion process
+together. :) Many thanks.
 
 ## Author ##
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Andrew Chilton</title>
+    <link>https://chilts.org</link>
+    <description>A blog about tech.</description>
+    <copyright>Andrew Chilton</copyright>
+    <managingEditor>Andrew Chilton</managingEditor>
+    <pubDate>Sun, 25 Jun 2017 21:34:25 +0000</pubDate>
+    <item>
+      <title>Cancelling Multiple Goroutines</title>
+      <link>https://chilts.org/cancelling-multiple-goroutines</link>
+      <description>&lt;h1&gt;Cancelling Multiple Goroutines&lt;/h1&gt;&lt;p&gt;When Go was first released, ...&lt;/p&gt;&lt;p&gt;(Ends)&lt;/p&gt;</description>
+      <author>Andrew Chilton</author>
+      <guid>chilts.org/cancelling-multiple-goroutines</guid>
+      <pubDate>Mon, 12 Jun 2017 23:13:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>Creating a Better ReadMe for GoLang Packages</title>
+      <link>https://chilts.org/readme-minimum-info-needed-for-your-golang-library</link>
+      <description>&lt;p&gt;We&#39;re lucky in the Go community ... &lt;/p&gt;</description>
+      <author>Andrew Chilton</author>
+      <guid>chilts.org/readme-minimum-info-needed-for-your-golang-library</guid>
+      <pubDate>Tue, 10 Jan 2017 11:25:58 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

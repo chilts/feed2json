@@ -4,7 +4,14 @@
   "description": "Convert RSS/Atom feeds to JSONFeed.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "set -e; for FILE in test/*.js; do node $FILE; done"
+  },
+  "dependencies": {
+    "feedparser": "^2.2.1",
+    "iconv-lite": "^0.4.18"
+  },
+  "devDependencies": {
+    "tape": "^4.7.0"
   },
   "author": "Andrew Chilton <andychilton@gmail.com>",
   "license": "ISC"

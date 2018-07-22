@@ -4,14 +4,14 @@ Converts both RSS and Atom feeds to JSONFeed format. A hosted version exists at 
 
 ## JSONFeed ##
 
-Even though JSON has it's problems, it is hundreds of times better than dealing with XML. Therefore, this package is
-designed to help you convert from RSS or Atom feeds into [JSONFeed](https://jsonfeed.org/) format. At that point you
-know what you have and can deal with is more effectively. It will also convert any non-UTF8 feeds too since JSON is
+Even though JSON has its problems, it is hundreds of times better than dealing with XML. Therefore, this package is
+designed to help you convert from RSS or Atom feeds into the [JSONFeed](https://jsonfeed.org/) format. At that point you
+know what you have and can deal with it more effectively. It will also convert any non-UTF8 feeds too since JSON is
 UTF8 by default.
 
 ## Synopsis ##
 
-This project contains the converter but does not fetch the feed for you, you must do that yourself.
+This project contains the converter but does not fetch the feed for you. You must do that yourself.
 
 Example showing a conversion of an RSS file on disk:
 
@@ -55,7 +55,7 @@ feed2json.fromString(str, url, (err, json) => {
 
 ## feed2json.org ##
 
-Note: this package has been tested on https://feed2json.org and has converted many feeds to JSONFeed. It's not perfect
+Note: this package has been tested on https://feed2json.org and has converted many feeds to JSONFeed. It's not perfect,
 I'm sure, but it's doing a decent job. Please send any PRs or patches my way so we can improve the conversion process
 together. :) Many thanks.
 
